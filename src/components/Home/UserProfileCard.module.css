@@ -47,8 +47,17 @@
   
   .user-profile-card ul li {
     margin-bottom: 5px;
-    border-radius: 10px;
+    border-radius: 21px;
     background: #9F94FF;
+    padding: 10px 10px 10px 10px;
+    width: 50px;
+    height: 30px;
+    flex-shrink: 0;
+    align-items: center;
     
   }
-  
+
+/* Add margin-top to the second and subsequent list items */
+.choose-category ul li:not(:first-child) {
+  margin-top: 10px; /* Adjust the margin as needed */
+}

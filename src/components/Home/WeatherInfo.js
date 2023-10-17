@@ -13,26 +13,34 @@ const WeatherInfo = ({ weather }) => {
 
       <div className={styles['lower-part']}>
         <div className={styles['weather-info']}>
+          <div><p>
+               <FontAwesomeIcon icon={faTachometerAlt} /> {weather.description}
+             </p>
+             
+          </div><h1>|</h1>
+          <div>
           <p>
-            <FontAwesomeIcon icon={faTachometerAlt} /> {weather.description}
-          </p>
-          <p>
-            <FontAwesomeIcon icon={faTemperatureLow} /> {weather.temperature}
-          </p>
-          {weather.heavyRain && (
+               <FontAwesomeIcon icon={faTemperatureLow} /> {weather.temperature}
+             </p>
+            {weather.heavyRain && (
+              <p>
+                <FontAwesomeIcon icon={faCloudShowersHeavy} /> {weather.heavyRain}
+              </p>
+            )
+            }
             <p>
-              <FontAwesomeIcon icon={faCloudShowersHeavy} /> {weather.heavyRain}
+              <FontAwesomeIcon icon={faTachometerAlt} /> {weather.pressure}
+          
             </p>
-          )}
-          <p>
-            <FontAwesomeIcon icon={faTachometerAlt} /> {weather.pressure}
-          </p>
-          <p>
-            <FontAwesomeIcon icon={faTint} /> {weather.humidity}
-          </p>
-          <p>
-            <FontAwesomeIcon icon={faWind} /> {weather.wind}
-          </p>
+          </div><h1>|</h1>
+          <div>
+            <p>
+              <FontAwesomeIcon icon={faTint} /> {weather.humidity}
+            </p>
+            <p>
+              <FontAwesomeIcon icon={faWind} /> {weather.wind}
+            </p>
+          </div>
         </div>
       </div>
     </div>

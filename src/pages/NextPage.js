@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './NextPage.css';
+import image2 from '../assets/movies_page.png';
+
 
 const NextPage = () => {
   const [moviesByCategory, setMoviesByCategory] = useState({});
@@ -40,7 +42,12 @@ const NextPage = () => {
 
   return (
     <div className="category-container">
-      <h1>sanket dhawale</h1>
+      <div className='heading'>
+      <h1>Super app</h1>
+      <img src={image2} alt="movie" />
+      </div>
+      <h2>Entertainment according to your choice</h2>
+      
       {selectedCategories.map(category => (
         <div key={category} className="category">
           <h2 className="category-name">{category}</h2>

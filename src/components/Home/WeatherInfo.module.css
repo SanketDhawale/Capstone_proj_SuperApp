@@ -8,13 +8,14 @@
 }
 
 .upper-part {
-  width: 70%;
+  width: 75%;
   display: flex;
   flex-direction: row;
   padding: 20px;
   justify-content: space-evenly;
   border-radius: 19px 19px 0px 0px;
   background: #FF4ADE;
+  height: 15%;
 }
 
 .upper-part p {
@@ -22,8 +23,9 @@
 }
 
 .lower-part {
-  width: 70%;
+  width: 75%;
   padding: 20px;
+  height: 20%;
   
 background: #101744;
 }

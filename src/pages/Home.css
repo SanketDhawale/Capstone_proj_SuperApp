@@ -1,6 +1,7 @@
 html, body {
   height: 100%;
   margin: 0;
+  padding: 0;
 }
 
 .next-page {
@@ -18,13 +19,15 @@ html, body {
 
 .upper-part {
   width: 50%;
+  height: 50%;
   display: flex;
   flex-direction: row;
-  height: 50vh; /* Use viewport height */
+  height: 45vh; /* Use viewport height */
 }
 
 .lower-part {
   width: 60%;
+  height: 50%;
 }
 
 .right-section {

@@ -1,3 +1,5 @@
+
+
 .hs {
     display: flex;
     gap: 40px;
@@ -32,8 +34,10 @@
     position: relative;
     display: flex;
     gap: 100px;
-    margin-left: 80px;
-    margin-top: 10px;
+    width: 900px;
+    margin-left: 10px;
+    margin-top: 0;
+    background-color: #1E2343;
 }
 
 .pause {
@@ -83,9 +87,11 @@
     justify-content: center;
     align-items: center;
     margin-top: 9px;
+    margin-left: 20px;
     width: 190px;
     height: 190px;
     background: #191E39;
+    color: white;
     box-shadow: 0px 6px 26px 0px #0000009C inset;
     box-shadow: -3px -7.000000476837158px 16px 0px #5F58583B;
     border-radius: 50%; /* Corrected border-radius */

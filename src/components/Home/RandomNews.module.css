@@ -50,4 +50,35 @@
   .news-details a:hover {
     text-decoration: underline;
   }
-  
+  /* RandomNews.module.css */
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #f9f9f9;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  height: 80vh; /* Set maximum height */
+  overflow-y: auto; /* Enable vertical scrolling if needed */
+}
+
+.news-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative; /* Added position relative */
+}
+
+.date-time {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: rgba(255, 255, 255, 0.7); /* Adjust opacity as needed */
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+}

@@ -1,24 +1,52 @@
 /* NextPage.css */
+body{
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
 
 .category-container {
-    margin-bottom: 20px;
-  }
-  
-  .category-container h2 {
-    font-size: 1.5em;
-  }
-  
-  .movies-posters {
-    display: flex;
-    overflow-x: auto;
-  }
-  
-  .movie-poster {
-    margin-right: 10px;
-  }
-  
-  .movie-poster img {
-    width: 150px; /* Adjust as needed */
-    height: auto;
-  }
-  
+  margin-bottom: 20px;
+}
+.category-name{
+  color:red;
+}
+
+.category-container h2 {
+  font-size: 1.5em;
+}
+
+.movies-posters {
+  display: flex;
+  overflow-x: auto;
+}
+
+.movie-poster {
+  margin-right: 10px;
+}
+
+.movie-poster img {
+  width: 120px; /* Adjust the width of the posters */
+  height: auto;
+}
+
+h1 {
+  color: #72DB73;
+  font-family: Single Day;
+  font-size: 24px; /* Adjust the font size */
+  font-style: normal;
+  font-weight: 400;
+  line-height: 110.688%; /* 66.119px */
+}
+
+h2 {
+ color: white;
+}
+.heading{
+  display: flex;
+  justify-content: space-between;
+}
+.heading img{
+  width: 50px;
+  height: 50px;
+}
