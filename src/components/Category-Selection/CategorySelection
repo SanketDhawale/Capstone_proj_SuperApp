@@ -1,0 +1,143 @@
+import React, { useState, useEffect } from 'react';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faTemperatureLow,
+  faCloudShowersHeavy,
+  faTachometerAlt,
+  faTint,
+  faWind,
+} from '@fortawesome/free-solid-svg-icons';
+import './NextPage.css'; // Update with your CSS file name
+
+const NextPage = () => {
+  const [userDetails] = useState(JSON.parse(localStorage.getItem('formData')) || {});
+  const [selectedCategories] = useState(JSON.parse(localStorage.getItem('selectedCategories')) || {});
+  const [weather, setWeather] = useState({
+    description: '',
+    temperature: '',
+    heavyRain: '',
+    pressure: '',
+    humidity: '',
+    wind: '',
+  });
+  const [randomNews, setRandomNews] = useState(null);
+
+  const getWeather = () => {
+    const apiKey = 'e48027483ee1a35d36d72d3d748b493c'; // Replace with your OpenWeatherMap API key
+    const city = 'pune'; // Change this to the desired city
+
+    fetch(https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey})
+      .then((response) => response.json())
+      .then((data) => {
+        const { weather, main, wind } = data;
+        setWeather({
+          description: weather[0]?.description,
+          temperature: ${Math.round(main.temp - 273.15)}°C, // Convert to Celsius
+          heavyRain: weather[0]?.main === 'Rain' ? 'Heavy Rain' : '',
+          pressure: ${main.pressure} hPa,
+          humidity: ${main.humidity} %,
+          wind: ${wind.speed} m/s,
+        });
+      })
+      .catch((error) => console.error('Error fetching weather:', error));
+  };
+
+  const getNews = () => {
+    const apiKey = '1bc404d57c7846218ffcdf0ce15adc8a'; // Replace with your News API key
+    const country = 'in'; // Change this to the desired country code
+
+    fetch(https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${apiKey})
+      .then((response) => response.json())
+      .then((data) => {
+        // Ensure the article has both a description and an image URL
+        const articlesWithImages = data.articles.filter(article => article.description && article.urlToImage);
+        
+        if (articlesWithImages.length > 0) {
+          const randomIndex = Math.floor(Math.random() * articlesWithImages.length);
+          setRandomNews(articlesWithImages[randomIndex]);
+        } else {
+          setRandomNews(null);
+        }
+      })
+      .catch((error) => console.error('Error fetching news:', error));
+  };
+
+  useEffect(() => {
+    getWeather();
+    getNews();
+  }, []);
+
+  return (
+    <div className="next-page">
+      <div className='left-section'>
+           {/* Section 1: User Profile Card with Selected Categories */}
+           <div className="upper-part">
+             <div className="card">
+               <h2>User Profile Card with Selected Categories</h2>
+               <div className="user-profile-card">
+                 <h3>User Profile</h3>
+                 <p> Name: {userDetails.name} </p>
+                 <p>Email: {userDetails.email}</p>
+                 <p>Username: {userDetails.username}</p>
+                 <p>Selected Categories:</p>
+                 <ul>
+                   {selectedCategories.map((category, index) => (
+                     <li key={index}>{category}</li>
+                   ))}
+                 </ul>
+               </div>
+             </div>
+           </div>
+     
+           {/* Section 2: Display Today's Date, Time, and Weather */}
+           <div className="lower-part">
+             <div className="card">
+               <h2>Display Today's Date, Time, and Weather</h2>
+               <p>Today's Date: {new Date().toLocaleDateString()}</p>
+               <p>Current Time: {new Date().toLocaleTimeString()}</p>
+               <div className="weather-info">
+                 <p>
+                   <FontAwesomeIcon icon={faTachometerAlt} /> Weather: {weather.description}
+                 </p>
+                 <p>
+                   <FontAwesomeIcon icon={faTemperatureLow} /> Temperature: {weather.temperature}
+                 </p>
+                 {weather.heavyRain && (
+                   <p>
+                     <FontAwesomeIcon icon={faCloudShowersHeavy} /> Heavy Rain: {weather.heavyRain}
+                   </p>
+                 )}
+                 <p>
+                   <FontAwesomeIcon icon={faTachometerAlt} /> Pressure: {weather.pressure}
+                 </p>
+                 <p>
+                   <FontAwesomeIcon icon={faTint} /> Humidity: {weather.humidity}
+                 </p>
+                 <p>
+                   <FontAwesomeIcon icon={faWind} /> Wind: {weather.wind}
+                 </p>
+               </div>
+             </div>
+           </div>
+          </div>
+
+      {/* Section 3: Display Random News Section */}
+      <div className="right-section">
+        <div className="card">
+          {randomNews && (
+            <div className="news-item">
+              <h3>{randomNews.title}</h3>
+              <img className='image-size' src={randomNews.urlToImage} alt="News" />
+              <p>{randomNews.description}</p>
+              <a href={randomNews.url} target="_blank" rel="noopener noreferrer">
+                Read more
+              </a>
+            </div>
+          )}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default NextPage;

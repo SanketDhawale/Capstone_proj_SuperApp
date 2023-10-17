@@ -1,0 +1,89 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+.next-page {
+  padding: 2vh; /* Use viewport height for padding */
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+}
+
+.left-section {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+}
+
+.upper-part {
+  width: 50%;
+  display: flex;
+  flex-direction: row;
+  height: 50vh; /* Use viewport height */
+}
+
+.lower-part {
+  width: 60%;
+}
+
+.right-section {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+}
+
+.card {
+  padding: 2vh; /* Use viewport height for padding */
+  border: none; /* Remove border */
+  border-radius: 0; /* Remove border-radius */
+  width: 100%;
+}
+
+.image-size {
+  width: 100%;
+  height: auto;
+  max-height: 40vh; /* Use viewport height */
+}
+
+.section {
+  margin-bottom: 2vh; /* Use viewport height for margin */
+}
+
+.user-profile-card {
+  margin-bottom: 1vh; /* Use viewport height for margin */
+}
+
+.user-profile-card p {
+  margin: 0.5vh 0; /* Use viewport height for margin */
+}
+
+.weather-info p {
+  margin: 0.5vh 0; /* Use viewport height for margin */
+}
+
+.news-item {
+  margin: 1vh 0; /* Use viewport height for margin */
+}
+
+.news-item h3 {
+  margin-bottom: 0.5vh; /* Use viewport height for margin */
+}
+
+.news-item a {
+  color: blue;
+}
+.browse-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.browse-button:hover {
+  background-color: #0056b3;
+}

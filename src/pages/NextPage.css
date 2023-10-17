@@ -1,0 +1,24 @@
+/* NextPage.css */
+
+.category-container {
+    margin-bottom: 20px;
+  }
+  
+  .category-container h2 {
+    font-size: 1.5em;
+  }
+  
+  .movies-posters {
+    display: flex;
+    overflow-x: auto;
+  }
+  
+  .movie-poster {
+    margin-right: 10px;
+  }
+  
+  .movie-poster img {
+    width: 150px; /* Adjust as needed */
+    height: auto;
+  }
+  
